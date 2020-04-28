@@ -32,7 +32,8 @@ namespace BooKstoreexample
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync($"Hello World! {env.EnvironmentName }");
+                    await context.Response.WriteAsync(env.IsEnvironment("test").ToString());
                 });
             });
         }
